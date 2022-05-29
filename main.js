@@ -1,10 +1,12 @@
+// querySelectors
 var logoTextBox  = document.querySelector('.logo-text-box');
 var receiveMessageButton = document.querySelector('.receive-message-button');
 var radioButton = document.querySelector('.radio-button');
 var logo = document.querySelector('.logo')
 var textOutput = document.querySelector('.output-view');
-var clearButton = document.querySelector('clear-view');
+var clearButton = document.querySelector('.clear-view').style.display = 'none';
 
+//arrays for random string
 var affirmations = [
   `I forgive myself and set myself free.`,
   `I believe I can be all that I want to be.`,
@@ -38,44 +40,41 @@ var mantras = [
   `Onward and upward.`,
   `I am the sky, the rest is weather.`,
 ];
-
+//event Listeners
 receiveMessageButton.addEventListener('click', returnSelectedOption);
-clearButton.addEventListener('click', clearMessageReturnLogo)
 
 
-// function to create random affirmation
+//functions
 function getRandomAffirmation(array) {
   var randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
-  console.log(randomAffirmation);
+    console.log(randomAffirmation);
 }
+
 function getRandomMantra(array) {
   var randomMantra = mantras[Math.floor(Math.random() * mantras.length)];
-  console.log(randomMantra);
+    console.log(randomMantra);
 }
 
-function returnSelectedOption() {
-  logo.classList.add("hidden");
-  textOutput.classList.remove("hidden");
+function returnSelectedOption(event) {
+    logo.classList.add("hidden");
+    textOutput.classList.remove("hidden");
   var randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
   var randomMantra = mantras[Math.floor(Math.random() * mantras.length)];
-  var didItRun = true;
   if (document.getElementById('affirmationId').checked) {
-   textOutput.innerText = randomAffirmation;
-   clearButton.classList.remove("hidden");
-   didItRun = true;
+    textOutput.innerText = randomAffirmation;
+    document.querySelector('.clear-view').style.display = 'block';
   } else if (document.getElementById('mantraId').checked) {
     textOutput.innerText = randomMantra;
-    clearButton.classList.remove("hidden");
-    didItRun = true;
- } else if (!document.getElementById('affirmationId').checked && !document.getElementById('mantraId').checked) {
-   textOutput.innerText = ' ';
-   logo.classList.remove("hidden");
- }
-}
-
-function clearMessageReturnLogo() {
-  if (didItRun === true) {
-    clearButton.classList.remove("hidden");
+    document.querySelector('.clear-view').style.display = 'block';
+  } else if (!document.getElementById('affirmationId').checked && !document.getElementById('mantraId').checked) {
+    textOutput.innerText = ' ';
+    logo.classList.remove("hidden");
+    }
   }
-
+function resetBox() {
+  if (document.getElementById('affirmationId' || 'mantraId')) {
+    textOutput.innerText = ' ';
+    logo.classList.remove("hidden");
+    clearButton = document.querySelector('.clear-view').style.display = 'none';
+  }
 }
