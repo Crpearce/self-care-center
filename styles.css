@@ -37,7 +37,6 @@ body {
   font-size: 15px;
   width: 300px;
   height: 5px;
-  margin-top: 10px;
 }
 .text-selection-box {
   background: #ffffff;
@@ -47,6 +46,7 @@ body {
   border-radius: 10px;
   display: block;
   text-align: center;
+
 }
 .radio-button {
   font-size: 5px;
@@ -68,7 +68,17 @@ body {
   border-radius: 10px;
   color: #000000;
   align-self: auto;
-
+  font-size: 10px;
+}
+.clear-view {
+  background: #134d71;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 15px;
+  height:10px;
+  margin-top: 30px;
+  padding-top: 5px;
+  border: 1px solid red;
 }
 img {
   height: 65px;
